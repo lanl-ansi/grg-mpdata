@@ -2,6 +2,18 @@
 grg-mpdata
 ==========
 
+**dev status:**
+
+.. image:: https://travis-ci.org/lanl-ansi/grg-mpdata.svg?branch=master
+  :target: https://travis-ci.org/lanl-ansi/grg-mpdata
+  :alt: Build Report
+.. image:: https://codecov.io/gh/lanl-ansi/grg-mpdata/branch/master/graph/badge.svg
+  :target: https://codecov.io/gh/lanl-ansi/grg-mpdata
+  :alt: Coverage Report
+.. image:: https://readthedocs.org/projects/grg-mpdata/badge/?version=latest
+  :target: http://grg-mpdata.readthedocs.io/en/latest/?badge=latest
+  :alt: Documentation Status
+
 
 grg-mpdata is a minimalist python package for working with Matpower data files.  A detailed description of the package data format is available `here <tbd>`_.
 
