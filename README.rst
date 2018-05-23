@@ -15,7 +15,7 @@ grg-mpdata
   :alt: Documentation Status
 
 
-grg-mpdata is a minimalist python package for working with Matpower data files.  A detailed description of the package data format is available `here <tbd>`_.
+grg-mpdata is a minimalist python package for working with Matpower data files.
 
 The package can be installed via::
 
