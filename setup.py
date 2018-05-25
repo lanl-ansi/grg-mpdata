@@ -3,22 +3,16 @@ import codecs
 import os
 import re
 
-import subprocess
-
 from setuptools import setup
 
-def version():
-    v = None
-    try:
-        v = subprocess.check_output(['git', 'describe', '--tags']).rstrip().decode('ascii')
-    except:
-        pass
-    if v == None:
-        v = subprocess.check_output(['git', '--git-dir', 'build/lanl-ansi/grg-mpdata/.git', 'describe', '--tags']).rstrip().decode('ascii')
-    if '-' in v:
-        v, ntag = v.split('-')[0:2]
-        v = '{}-dev'.format(v)
-    return v
+def find_version(*file_paths):
+    with open(os.path.join(os.path.dirname(__file__), *file_paths)) as file:
+        version_file = file.read()
+
+    version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]", version_file, re.M)
+    if version_match:
+        return version_match.group(1)
+    raise RuntimeError("Unable to find version string.")
 
 with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
     long_description = readme.read()
@@ -40,7 +34,7 @@ classifiers = [
 setup(
     name='grg-mpdata',
     packages=['grg_mpdata'],
-    version=version(),
+    version=find_version('grg_mpdata', '__init__.py'),
     url='https://github.com/lanl-ansi/grg-mpdata',
     license='BSD',
 
