@@ -1,4 +1,7 @@
 language: python
+os:
+  - linux
+  - osx
 python:
   - "2.7.13"
   - "2.7"
@@ -22,3 +25,4 @@ deploy:
       tags: true
       branch: master
       condition: $TRAVIS_PYTHON_VERSION = '3.6'
+      condition: $TRAVIS_OS_NAME = 'linux'
