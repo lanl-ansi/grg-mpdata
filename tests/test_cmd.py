@@ -30,7 +30,7 @@ class TestDiff:
 
     def test_005(self):
         count = grg_mpdata.cmd.diff(self.case_2, self.case_5)
-        assert(count == 14)
+        assert(count == 18)
 
 
 class TestEq:
