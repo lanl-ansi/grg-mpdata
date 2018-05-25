@@ -8,7 +8,13 @@ import subprocess
 from setuptools import setup
 
 def version():
-    v = subprocess.check_output(['git', 'describe', '--tags', '--always']).rstrip().decode('ascii')
+    v = None
+    try:
+        v = subprocess.check_output(['git', 'describe', '--tags']).rstrip().decode('ascii')
+    except:
+        pass
+    if v == None:
+        v = subprocess.check_output(['git', '--git-dir', '../..', 'describe', '--tags']).rstrip().decode('ascii')
     if '-' in v:
         v, ntag = v.split('-')[0:2]
         v = '{}-dev'.format(v)
