@@ -300,38 +300,6 @@ class Case(object):
 
         return '\n'.join(matpower_lines)
 
-    # def get_slack_bus(self):
-    #     slack_busses = []
-    #     for b in self.bus:
-    #         if int(b.type) == 3:
-    #             slack_busses.append(b)
-    #     assert(len(slack_busses) == 1) #should only be one slack bus
-    #     return slack_busses[0]
-
-    # def deepcopy(self):
-    #     bus = [copy.deepcopy(x) for x in self.bus]
-    #     gen = [copy.deepcopy(x) for x in self.gen]
-    #     branch = [copy.deepcopy(x) for x in self.branch]
-    #     gencost = [copy.deepcopy(x) for x in self.gencost]
-
-    #     return Case(self.name, self.baseMVA, bus, gen, branch, gencost);
-
-    # def make_per_unit(self):
-    #     bus = [x.make_per_unit(self.baseMVA) for x in self.bus]
-    #     gen = [x.make_per_unit(self.baseMVA) for x in self.gen]
-    #     branch = [x.make_per_unit(self.baseMVA) for x in self.branch]
-    #     gencost = [x.make_per_unit(self.baseMVA) for x in self.gencost]
-
-    #     return Case(self.name+'_pu', 1.0, bus, gen, branch, gencost);
-
-    # def make_radians(self):
-    #     bus = [x.make_radians() for x in self.bus]
-    #     gen = [x.make_radians() for x in self.gen]
-    #     branch = [x.make_radians() for x in self.branch]
-    #     gencost = [x.make_radians() for x in self.gencost]
-
-    #     return Case(self.name+'_rad', self.baseMVA, bus, gen, branch,
-    #                 gencost);
 
     def remove_status_zero(self):
         bus = [copy.deepcopy(x) for x in self.bus]
@@ -357,28 +325,6 @@ class Case(object):
 
         return Case(self.name+'_status-1', self.baseMVA, bus, gen, branch,
             gencost)
-
-    # def bus_ids(self):
-    #     return set(x.bus_i for x in self.bus)
-
-    # def gen_ids(self):
-    #     #return set(x.bus for x in self.gen)
-    #     return set(i for i, x in enumerate(self.gen))
-
-    # def branch_ids(self):
-    #     return set((x.t_bus, x.f_bus,i) for i,x in enumerate(self.branch))
-
-    # def branch_lookup(self):
-    #     return {(x.t_bus, x.f_bus,i):x for i,x in enumerate(self.branch)}
-
-    # def bus_lookup(self):
-    #     return {x.bus_i:x for x in self.bus}
-
-    # def bus_gen_lookup(self):
-    #     gens = {x.bus_i:set() for x in self.bus}
-    #     for i,g in enumerate(self.gen):
-    #         gens[g.bus].add(i)
-    #     return gens
 
 
 class Generator(object):
@@ -471,12 +417,6 @@ class Generator(object):
 
     def __eq__(self, other):
         if isinstance(other, self.__class__):
-            # if not self.__dict__ == other.__dict__:
-            #     for k in self.__dict__.keys():
-            #        if not k in other.__dict__:
-            #            print 'No key', k
-            #        else:
-            #            print k, self.__dict__[k] == other.__dict__[k], self.__dict__[k], other.__dict__[k]
             return self.__dict__ == other.__dict__
         return NotImplemented
 
@@ -601,20 +541,12 @@ class MatpowerCost(object):
             self.cost
         return '\t '.join([str(x) for x in data])
 
-    # def make_per_unit(self, baseMVA):
-    #     return GeneratorCost(self.type, self.startup, self.shutdown, self.n,
-    #                          self.c2*baseMVA**2, self.c1*baseMVA, self.c0);
-
-    # def make_radians(self):
-    #     return GeneratorCost(self.type, self.startup, self.shutdown, self.n,
-    #                          self.c2, self.c1, self.c0);
-
-
 class GeneratorCost(MatpowerCost):
     pass
 
 class DCLineCost(MatpowerCost):
     pass
+
 
 class Bus(object):
     def __init__(self, bus_i, bus_type, pd, qd, gs, bs, area, vm, va, base_kv,
@@ -677,12 +609,6 @@ class Bus(object):
 
     def __eq__(self, other):
         if isinstance(other, self.__class__):
-            # if not self.__dict__ == other.__dict__:
-            #     for k in self.__dict__.keys():
-            #        if not k in other.__dict__:
-            #            print 'No key', k
-            #        else:
-            #            print k, self.__dict__[k] == other.__dict__[k], self.__dict__[k], other.__dict__[k]
             return self.__dict__ == other.__dict__
         return NotImplemented
 
@@ -747,12 +673,6 @@ class BusName(object):
 
     def __eq__(self, other):
         if isinstance(other, self.__class__):
-            # if not self.__dict__ == other.__dict__:
-            #     for k in self.__dict__.keys():
-            #        if not k in other.__dict__:
-            #            print 'No key', k
-            #        else:
-            #            print k, self.__dict__[k] == other.__dict__[k], self.__dict__[k], other.__dict__[k]
             return self.__dict__ == other.__dict__
         return NotImplemented
 
@@ -1007,5 +927,4 @@ class DCLine(object):
                      self.mu_qmint, self.mu_qmaxt]
 
         return '\t '.join([str(x) for x in data])
-
 

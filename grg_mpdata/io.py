@@ -20,13 +20,6 @@ from grg_mpdata.exception import MPDataWarning
 from collections import namedtuple
 _Assignment = namedtuple('_Assignment', ['var', 'val'])
 
-# def parse_matrix_row(line):
-#     if ';' in line:
-#         line = line.strip('[').strip(']')
-#         line = line.split(';')[0]
-#         return [item.strip() for item in line.split()]
-#     else:
-#         return []
 
 def _parse_cell(lines, index):
     return _parse_matlab_data(lines, index, '{', '}')
