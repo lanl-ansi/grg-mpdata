@@ -9,5 +9,6 @@ install:
   - pip install codecov
 script:
   - tox
+  - ./check_version.py
 after_success:
   - codecov
