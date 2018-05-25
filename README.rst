@@ -2,6 +2,15 @@
 grg-mpdata
 ==========
 
+**release:**
+
+.. image:: https://badge.fury.io/py/grg-mpdata.svg
+    :target: https://badge.fury.io/py/grg-mpdata
+
+.. image:: https://readthedocs.org/projects/grg-mpdata/badge/?version=stable
+  :target: http://grg-mpdata.readthedocs.io/en/stable/?badge=stable
+  :alt: Documentation Status
+
 **dev status:**
 
 .. image:: https://travis-ci.org/lanl-ansi/grg-mpdata.svg?branch=master
