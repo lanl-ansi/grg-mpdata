@@ -3,21 +3,16 @@ import codecs
 import os
 import re
 
+import subprocess
+
 from setuptools import setup
 
-here = os.path.abspath(os.path.dirname(__file__))
-
-def read(*parts):
-    # intentionally *not* adding an encoding option to open
-    return codecs.open(os.path.join(here, *parts), 'r').read()
-
-def find_version(*file_paths):
-    version_file = read(*file_paths)
-    version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
-                              version_file, re.M)
-    if version_match:
-        return version_match.group(1)
-    raise RuntimeError("Unable to find version string.")
+def version():
+    v = subprocess.check_output(["git", "describe", "--tags"]).rstrip().decode('ascii')
+    if '-' in v:
+        v, ntag = v.split('-')[0:2]
+        v = '{}-dev'.format(v)
+    return v
 
 with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
     long_description = readme.read()
@@ -39,7 +34,7 @@ classifiers = [
 setup(
     name='grg-mpdata',
     packages=['grg_mpdata'],
-    version=find_version('grg_mpdata', '__init__.py'),
+    version=version(),
     url='https://github.com/lanl-ansi/grg-mpdata',
     license='BSD',
 
