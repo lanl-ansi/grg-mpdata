@@ -36,3 +36,18 @@ License
 This package is developed at Los Alamos National Laboratory and is provided under a BSD-3 license as part of the Grid Research for Good Software Tools (C18036), see the `LICENSE` file for the full text.
 
 
+Changelog
+------------
+
+**v0.1.0**
+
+- Initial release
+
+**v0.0.2**
+
+- PyPI test release
+
+
+**v0.0.1**
+
+- initial test tag
