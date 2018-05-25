@@ -15,7 +15,15 @@ print('git version: {}'.format(git_version))
 
 print('grg_mpdata version: {}'.format(py_version))
 
+py_version_parts = [int(x) for x in py_version.split('.')]
+git_version_parts = [int(x) for x in git_version.split('.')]
 
-if git_version != py_version:
-    print('git and python versions do not match')
-    sys.exit(1)
+assert(len(py_version_parts) == len(git_version_parts))
+
+for i in range(len(py_version_parts)):
+    if git_version_parts[i] > py_version_parts[i]:
+        print('git version is ahead of python version')
+        sys.exit(1)
+
+    if git_version_parts[i] < py_version_parts[i]:
+        break
