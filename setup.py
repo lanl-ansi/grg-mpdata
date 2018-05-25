@@ -14,7 +14,7 @@ def version():
     except:
         pass
     if v == None:
-        v = subprocess.check_output(['git', '--git-dir', 'lanl-ansi/grg-mpdata/.git', 'describe', '--tags']).rstrip().decode('ascii')
+        v = subprocess.check_output(['git', '--git-dir', 'build/lanl-ansi/grg-mpdata/.git', 'describe', '--tags']).rstrip().decode('ascii')
     if '-' in v:
         v, ntag = v.split('-')[0:2]
         v = '{}-dev'.format(v)
