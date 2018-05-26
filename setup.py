@@ -1,4 +1,3 @@
-#from __future__ import print_function
 import codecs
 import os
 import re
@@ -44,7 +43,7 @@ setup(
     setup_requires=['pytest-runner'],
     tests_require=['pytest-cov'],
     test_suite='tests',
-    description='Datastructures and methods for reading and writing Matpower data files',
+    description='Data structures and methods for reading and writing Matpower data files',
     long_description=long_description,
 
     classifiers = classifiers,
