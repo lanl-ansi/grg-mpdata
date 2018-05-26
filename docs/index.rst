@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to Grid Research for Good - Matpower Data documentation
-==================================
+===============================================================
 
 Contents:
 

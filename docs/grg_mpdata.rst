@@ -1,11 +1,11 @@
 grg-mpdata package
-==============
+==================
 
 .. Submodules
 .. ----------
 
 grg_mpdata.io module
-----------------
+--------------------
 
 .. automodule:: grg_mpdata.io
     :members:
@@ -13,7 +13,7 @@ grg_mpdata.io module
     :show-inheritance:
 
 grg_mpdata.cmd module
------------------------
+---------------------
 
 .. automodule:: grg_mpdata.cmd
     :members:
@@ -21,7 +21,7 @@ grg_mpdata.cmd module
     :show-inheritance:
 
 grg_mpdata.exception module
------------------------
+---------------------------
 
 .. automodule:: grg_mpdata.exception
     :members:
@@ -29,7 +29,7 @@ grg_mpdata.exception module
     :show-inheritance:
 
 grg_mpdata.struct module
---------------------
+------------------------
 
 .. automodule:: grg_mpdata.struct
     :members:
