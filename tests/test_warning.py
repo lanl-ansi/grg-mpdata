@@ -4,6 +4,7 @@ import grg_mpdata
 
 from test_common import warning_files
 
+#warnings.simplefilter('always')
 @pytest.mark.parametrize('input_data', warning_files)
 def test_001(input_data):
     with pytest.warns(grg_mpdata.exception.MPDataWarning):
